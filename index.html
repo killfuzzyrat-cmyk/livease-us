@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LiveaseUS — Premium Lifestyle Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #C9A96E;
+      --gold-light: #E8D5B0;
+      --dark: #0A0A0A;
+      --dark2: #111111;
+      --dark3: #1A1A1A;
+      --white: #FFFFFF;
+      --grey: #888888;
+      --light: #F8F6F2;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── ANNOUNCEMENT BAR ── */
+    .announcement {
+      background: var(--gold);
+      color: var(--dark);
+      text-align: center;
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201,169,110,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 60px;
+      height: 72px;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 2px;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-actions {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-actions svg {
+      width: 22px;
+      height: 22px;
+      stroke: rgba(255,255,255,0.75);
+      cursor: pointer;
+      transition: stroke 0.3s;
+    }
+
+    .nav-actions svg:hover { stroke: var(--gold); }
+
+    .cart-count {
+      background: var(--gold);
+      color: var(--dark);
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: -20px;
+      margin-left: -10px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 92vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0A0A0A 0%, #1A1208 40%, #0A0A0A 100%);
+    }
+
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(201,169,110,0.15) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 30%, rgba(201,169,110,0.08) 0%, transparent 50%);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(201,169,110,0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(201,169,110,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 40px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(201,169,110,0.12);
+      border: 1px solid rgba(201,169,110,0.3);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 40px;
+      margin-bottom: 28px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(48px, 7vw, 88px);
+      font-weight: 700;
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+
+    .hero-title .gold { color: var(--gold); }
+
+    .hero-subtitle {
+      font-size: 17px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      margin-bottom: 44px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      padding: 16px 40px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 40px rgba(201,169,110,0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 16px 40px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 60px;
+    }
+
+    .stat { text-align: center; }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 100px 60px; }
+
+    .section-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: rgba(255,255,255,0.5);
+      max-width: 500px;
+      line-height: 1.7;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 60px;
+    }
+
+    /* ── CATEGORIES ── */
+    .categories { background: var(--dark2); }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .category-card {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 3/4;
+      background: var(--dark3);
+      border: 1px solid rgba(201,169,110,0.1);
+      transition: transform 0.4s, border-color 0.4s;
+    }
+
+    .category-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(201,169,110,0.4);
+    }
+
+    .category-icon {
+      font-size: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 65%;
+      background: linear-gradient(135deg, rgba(201,169,110,0.08), rgba(201,169,110,0.03));
+    }
+
+    .category-info {
+      padding: 20px;
+    }
+
+    .category-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .category-count {
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    /* ── PRODUCTS ── */
+    .products { background: var(--dark); }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.4s;
+      position: relative;
+    }
+
+    .product-card:hover {
+      border-color: rgba(201,169,110,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+      z-index: 2;
+    }
+
+    .product-badge.sale { background: #E74C3C; color: white; }
+
+    .product-img {
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 72px;
+      background: linear-gradient(135deg, rgba(201,169,110,0.06) 0%, rgba(201,169,110,0.02) 100%);
+      transition: transform 0.4s;
+    }
+
+    .product-card:hover .product-img { transform: scale(1.05); }
+
+    .product-info { padding: 20px; }
+
+    .product-brand {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .product-stars {
+      color: var(--gold);
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .product-stars span {
+      color: rgba(255,255,255,0.4);
+      font-size: 12px;
+      margin-left: 6px;
+    }
+
+    .product-price-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .product-price {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .product-price-old {
+      font-size: 14px;
+      color: rgba(255,255,255,0.3);
+      text-decoration: line-through;
+    }
+
+    .product-price-save {
+      font-size: 11px;
+      background: rgba(201,169,110,0.15);
+      color: var(--gold);
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .btn-add {
+      width: 100%;
+      background: transparent;
+      border: 1px solid rgba(201,169,110,0.3);
+      color: var(--gold);
+      padding: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .btn-add:hover {
+      background: var(--gold);
+      color: var(--dark);
+      border-color: var(--gold);
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-section {
+      background: var(--gold);
+      padding: 18px 0;
+      overflow: hidden;
+    }
+
+    .marquee-track {
+      display: flex;
+      animation: marquee 20s linear infinite;
+      white-space: nowrap;
+    }
+
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 0 40px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--dark);
+    }
+
+    .marquee-dot { width: 6px; height: 6px; background: var(--dark); border-radius: 50%; opacity: 0.4; }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── FEATURES ── */
+    .features { background: var(--dark3); }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+
+    .feature-item { text-align: center; }
+
+    .feature-icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .feature-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .feature-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: var(--dark2); }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--dark3);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 4px;
+      padding: 36px;
+      transition: border-color 0.3s;
+    }
+
+    .testimonial-card:hover { border-color: rgba(201,169,110,0.2); }
+
+    .testimonial-stars { color: var(--gold); font-size: 16px; margin-bottom: 16px; }
+
+    .testimonial-text {
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #8B6914);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--dark);
+    }
+
+    .testimonial-name { font-weight: 600; font-size: 15px; }
+    .testimonial-location { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 2px; }
+
+    /* ── NEWSLETTER ── */
+    .newsletter {
+      background: linear-gradient(135deg, #110E06 0%, #1A1208 50%, #110E06 100%);
+      border-top: 1px solid rgba(201,169,110,0.15);
+      border-bottom: 1px solid rgba(201,169,110,0.15);
+      text-align: center;
+    }
+
+    .newsletter .section-title { margin-bottom: 14px; }
+    .newsletter .section-sub { margin: 0 auto 40px; }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(201,169,110,0.2);
+      border-right: none;
+      color: white;
+      padding: 16px 22px;
+      font-size: 14px;
+      outline: none;
+      border-radius: 2px 0 0 2px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .newsletter-input::placeholder { color: rgba(255,255,255,0.3); }
+    .newsletter-input:focus { border-color: rgba(201,169,110,0.5); }
+
+    .newsletter-btn {
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      padding: 16px 28px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 0 2px 2px 0;
+      transition: background 0.3s;
+    }
+
+    .newsletter-btn:hover { background: var(--gold-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 80px 60px 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .footer-brand-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .footer-socials { display: flex; gap: 14px; }
+
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(201,169,110,0.2);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .social-btn:hover { border-color: var(--gold); background: rgba(201,169,110,0.1); }
+
+    .footer-col-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 22px;
+      color: var(--white);
+    }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-bottom-text { font-size: 13px; color: rgba(255,255,255,0.25); }
+    .footer-bottom-text span { color: var(--gold); }
+
+    .payment-icons { display: flex; gap: 10px; font-size: 22px; }
+
+    /* ── SCROLL TOP ── */
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 48px;
+      height: 48px;
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      border-radius: 2px;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99;
+      transition: all 0.3s;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .scroll-top.visible { opacity: 1; pointer-events: all; }
+    .scroll-top:hover { transform: translateY(-3px); }
+
+    /* ── CART SIDEBAR ── */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .cart-overlay.open { opacity: 1; pointer-events: all; }
+
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 420px;
+      height: 100vh;
+      background: var(--dark2);
+      border-left: 1px solid rgba(201,169,110,0.15);
+      z-index: 201;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .cart-sidebar.open { right: 0; }
+
+    .cart-header {
+      padding: 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .cart-close {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      font-size: 24px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .cart-close:hover { color: var(--gold); }
+
+    .cart-empty {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .cart-empty-icon { font-size: 64px; }
+    .cart-empty-text { font-size: 15px; }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      section { padding: 70px 24px; }
+      .category-grid { grid-template-columns: repeat(2, 1fr); }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .hero-stats { gap: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Announcement -->
+<div class="announcement">
+  🇺🇸 Free US Shipping on Orders $50+ &nbsp;|&nbsp; Same-Day Dispatch &nbsp;|&nbsp; 30-Day Returns
+</div>
+
+<!-- Nav -->
+<nav>
+  <a href="#" class="nav-logo">LIVEASE</a>
+  <ul class="nav-links">
+    <li><a href="#categories">Collections</a></li>
+    <li><a href="#products">Trending</a></li>
+    <li><a href="#features">About</a></li>
+    <li><a href="#">Sale</a></li>
+  </ul>
+  <div class="nav-actions">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+    </svg>
+    <div style="position:relative; cursor:pointer;" onclick="toggleCart()">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+      <div class="cart-count" id="cartCount">0</div>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✦ America's Premium Lifestyle Store</div>
+    <h1 class="hero-title">
+      Elevate Your<br><span class="gold">Everyday Living</span>
+    </h1>
+    <p class="hero-subtitle">
+      Curated winning products loved across America. Premium quality, unbeatable prices, delivered to your door.
+    </p>
+    <div class="hero-btns">
+      <a href="#products" class="btn-primary">Shop Trending Now</a>
+      <a href="#categories" class="btn-outline">View Collections</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-number">50K+</div><div class="stat-label">Happy Customers</div></div>
+    <div class="stat"><div class="stat-number">4.9★</div><div class="stat-label">Average Rating</div></div>
+    <div class="stat"><div class="stat-number">200+</div><div class="stat-label">Products</div></div>
+    <div class="stat"><div class="stat-number">48hr</div><div class="stat-label">Fast Delivery</div></div>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marquee">
+    <div class="marquee-item">Free US Shipping $50+<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Trending Products 2026<div class="marquee-dot"></div></div>
+    <div class="marquee-item">30-Day Easy Returns<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Premium Quality Guaranteed<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Same-Day Order Processing<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Exclusive Members Discounts<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Free US Shipping $50+<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Trending Products 2026<div class="marquee-dot"></div></div>
+    <div class="marquee-item">30-Day Easy Returns<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Premium Quality Guaranteed<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Same-Day Order Processing<div class="marquee-dot"></div></div>
+    <div class="marquee-item">Exclusive Members Discounts<div class="marquee-dot"></div></div>
+  </div>
+</div>
+
+<!-- Categories -->
+<section class="categories" id="categories">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">Shop by Collection</div>
+      <h2 class="section-title">Explore Our World</h2>
+    </div>
+    <a href="#" class="btn-outline" style="font-size:12px; padding:12px 28px;">View All</a>
+  </div>
+  <div class="category-grid">
+    <div class="category-card">
+      <div class="category-icon">💆</div>
+      <div class="category-info">
+        <div class="category-name">Wellness & Recovery</div>
+        <div class="category-count">34 Products</div>
+      </div>
+    </div>
+    <div class="category-card">
+      <div class="category-icon">🏠</div>
+      <div class="category-info">
+        <div class="category-name">Home & Living</div>
+        <div class="category-count">58 Products</div>
+      </div>
+    </div>
+    <div class="category-card">
+      <div class="category-icon">⌚</div>
+      <div class="category-info">
+        <div class="category-name">Tech & Gadgets</div>
+        <div class="category-count">42 Products</div>
+      </div>
+    </div>
+    <div class="category-card">
+      <div class="category-icon">✨</div>
+      <div class="category-info">
+        <div class="category-name">Beauty & Skin</div>
+        <div class="category-count">29 Products</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Products -->
+<section class="products" id="products">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">Winning Products</div>
+      <h2 class="section-title">Trending in the USA</h2>
+      <p class="section-sub">Hand-picked best sellers flying off shelves across America right now.</p>
+    </div>
+    <a href="#" class="btn-outline" style="font-size:12px; padding:12px 28px;">View All Products</a>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- Features -->
+<section class="features" id="features">
+  <div style="text-align:center; margin-bottom:70px;">
+    <div class="section-tag">Why LiveaseUS</div>
+    <h2 class="section-title">The LiveaseUS Difference</h2>
+  </div>
+  <div class="features-grid">
+    <div class="feature-item">
+      <span class="feature-icon">🚀</span>
+      <div class="feature-title">Lightning Fast Shipping</div>
+      <p class="feature-text">Same-day order processing with 2-day delivery across all 50 states. No delays, no excuses.</p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🛡️</span>
+      <div class="feature-title">30-Day Guarantee</div>
+      <p class="feature-text">Not 100% satisfied? Return it hassle-free within 30 days. Your satisfaction is our promise.</p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">💎</span>
+      <div class="feature-title">Premium Curation</div>
+      <p class="feature-text">Every product is tested and verified. We only stock items that meet our strict quality standards.</p>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🇺🇸</span>
+      <div class="feature-title">Proudly American</div>
+      <p class="feature-text">Built for Americans, by Americans. 24/7 US-based customer support that actually picks up.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <div style="text-align:center; margin-bottom:70px;">
+    <div class="section-tag">Real Reviews</div>
+    <h2 class="section-title">What Our Customers Say</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"The massage gun is absolutely incredible. I'm a personal trainer and I recommend it to all my clients now. Shipping was insanely fast too — arrived next day!"</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">JM</div>
+        <div>
+          <div class="testimonial-name">James Mitchell</div>
+          <div class="testimonial-location">Houston, TX</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"I've ordered from so many online stores and LiveaseUS is genuinely on another level. The packaging alone felt premium. The LED lights transformed my entire room."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">SA</div>
+        <div>
+          <div class="testimonial-name">Sofia Andrews</div>
+          <div class="testimonial-location">Los Angeles, CA</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"The smart watch exceeded every expectation. Battery lasts 7 days and the health tracking is accurate. Already bought 2 more as gifts for my family."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">RK</div>
+        <div>
+          <div class="testimonial-name">Ryan Kowalski</div>
+          <div class="testimonial-location">Chicago, IL</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+  <div class="section-tag">Stay in the Loop</div>
+  <h2 class="section-title">Get Early Access to Deals</h2>
+  <p class="section-sub">Join 50,000+ Americans who get first access to new products and exclusive discounts.</p>
+  <div class="newsletter-form">
+    <input type="email" class="newsletter-input" placeholder="Enter your email address" />
+    <button class="newsletter-btn">Subscribe</button>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">LIVEASE</div>
+      <p class="footer-brand-text">America's most loved premium lifestyle store. Bringing you the best trending products, curated with care and shipped with speed.</p>
+      <div class="footer-socials">
+        <div class="social-btn">📘</div>
+        <div class="social-btn">📸</div>
+        <div class="social-btn">🎵</div>
+        <div class="social-btn">🐦</div>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Shop</div>
+      <ul class="footer-links">
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Best Sellers</a></li>
+        <li><a href="#">Sale</a></li>
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">Gift Cards</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Support</div>
+      <ul class="footer-links">
+        <li><a href="#">Track Order</a></li>
+        <li><a href="#">Returns & Exchanges</a></li>
+        <li><a href="#">Shipping Info</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-text">© 2026 <span>LiveaseUS</span>. All rights reserved. Made with ♥ in America.</div>
+    <div class="payment-icons">💳 🏦 💰 🍎</div>
+  </div>
+</footer>
+
+<!-- Scroll Top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- Cart Sidebar -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <div class="cart-title">Your Cart</div>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-empty">
+    <div class="cart-empty-icon">🛍️</div>
+    <div class="cart-empty-text">Your cart is empty</div>
+    <a href="#products" class="btn-primary" onclick="toggleCart()" style="margin-top:8px; font-size:12px; padding:12px 28px;">Start Shopping</a>
+  </div>
+</div>
+
+<script>
+  const products = [
+    { name: "Massage Gun Pro X1", brand: "LiveaseUS Recovery", price: 89.99, old: 149.99, stars: 4.9, reviews: 2847, emoji: "🔫", badge: "Best Seller", save: "40%" },
+    { name: "Aesthetic LED Strip Kit", brand: "LiveaseUS Home", price: 34.99, old: 59.99, stars: 4.8, reviews: 5124, emoji: "💡", badge: "Trending", save: "42%" },
+    { name: "Smart Watch Ultra Pro", brand: "LiveaseUS Tech", price: 129.99, old: 199.99, stars: 4.9, reviews: 1932, emoji: "⌚", badge: "New", save: "35%" },
+    { name: "Portable Power Blender", brand: "LiveaseUS Kitchen", price: 49.99, old: 79.99, stars: 4.7, reviews: 3411, emoji: "🥤", badge: "Best Seller", save: "38%" },
+    { name: "Air Purifier Mini Pro", brand: "LiveaseUS Home", price: 79.99, old: 119.99, stars: 4.8, reviews: 1587, emoji: "🌬️", badge: "Trending", save: "33%", badgeClass: "sale" },
+    { name: "Posture Corrector Elite", brand: "LiveaseUS Wellness", price: 39.99, old: 69.99, stars: 4.6, reviews: 4209, emoji: "🦺", badge: "Sale", save: "43%", badgeClass: "sale" },
+    { name: "Gua Sha Skincare Set", brand: "LiveaseUS Beauty", price: 29.99, old: 49.99, stars: 4.9, reviews: 6832, emoji: "💎", badge: "Best Seller", save: "40%" },
+    { name: "Car Organizer Elite", brand: "LiveaseUS Auto", price: 44.99, old: 74.99, stars: 4.7, reviews: 2104, emoji: "🚗", badge: "Trending", save: "40%" },
+  ];
+
+  const grid = document.getElementById('productsGrid');
+  products.forEach((p, i) => {
+    grid.innerHTML += `
+      <div class="product-card" style="animation-delay:${i*0.05}s">
+        <div class="product-badge ${p.badgeClass||''}">${p.badge}</div>
+        <div class="product-img">${p.emoji}</div>
+        <div class="product-info">
+          <div class="product-brand">${p.brand}</div>
+          <div class="product-name">${p.name}</div>
+          <div class="product-stars">${'★'.repeat(Math.floor(p.stars))}${'☆'.repeat(5-Math.floor(p.stars))}<span>(${p.reviews.toLocaleString()})</span></div>
+          <div class="product-price-row">
+            <div class="product-price">$${p.price}</div>
+            <div class="product-price-old">$${p.old}</div>
+            <div class="product-price-save">Save ${p.save}</div>
+          </div>
+          <button class="btn-add" onclick="addToCart('${p.name}', ${p.price})">Add to Cart</button>
+        </div>
+      </div>`;
+  });
+
+  let cartItems = [];
+  function addToCart(name, price) {
+    cartItems.push({ name, price });
+    document.getElementById('cartCount').textContent = cartItems.length;
+    toggleCart();
+    const sidebar = document.getElementById('cartSidebar');
+    const empty = sidebar.querySelector('.cart-empty');
+    if (cartItems.length > 0) {
+      empty.innerHTML = `
+        <div style="padding:28px; width:100%;">
+          <p style="color:var(--gold); margin-bottom:20px; font-family:'Playfair Display',serif; font-size:18px;">Items in your cart</p>
+          ${cartItems.map(i => `<div style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:14px;"><span>${i.name}</span><span style="color:var(--gold);">$${i.price}</span></div>`).join('')}
+          <div style="margin-top:24px; padding-top:16px; border-top:1px solid rgba(201,169,110,0.2); display:flex; justify-content:space-between; font-size:18px; font-weight:700;">
+            <span>Total</span><span style="color:var(--gold);">$${cartItems.reduce((a,b)=>a+b.price,0).toFixed(2)}</span>
+          </div>
+          <button class="btn-primary" style="width:100%;margin-top:20px;text-align:center;">Checkout →</button>
+        </div>`;
+    }
+  }
+
+  function toggleCart() {
+    document.getElementById('cartOverlay').classList.toggle('open');
+    document.getElementById('cartSidebar').classList.toggle('open');
+  }
+
+  window.addEventListener('scroll', () => {
+    const btn = document.getElementById('scrollTop');
+    btn.classList.toggle('visible', window.scrollY > 400);
+  });
+</script>
+</body>
+</html>
