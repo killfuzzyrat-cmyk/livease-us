@@ -3,1112 +3,375 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>LiveaseUS — Premium Home & Lifestyle Store</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#FFFFFF;--bg2:#FAF8F5;--bg3:#F3EDE4;
-  --dark:#18160E;--text:#3D3830;--muted:#9A9189;
-  --border:#E8E1D8;--white:#FFFFFF;
-  --gold:#C4956A;--gold-dark:#8B5E3C;--gold-light:#F0E4D4;
-  --kitchen:#E8623A;--kitchen-bg:#FDF3EF;--kitchen-light:#FEE9E1;
-  --home:#4A7C59;--home-bg:#EFF6F1;--home-light:#DCF0E3;
-  --smart:#3D5A9A;--smart-bg:#EEF1FA;--smart-light:#D9E0F5;
-  --best:#B8860B;--best-bg:#FDF8ED;--best-light:#FAF0CC;
-  --pet:#7B6FAA;--pet-bg:#F3F1FA;--pet-light:#E5E0F5;
-}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
-img{max-width:100%;display:block}
-
-/* ── TOP ANNOUNCEMENT ── */
-.topbar{background:var(--dark);color:rgba(255,255,255,.85);text-align:center;padding:9px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500}
-.topbar span{color:var(--gold)}
-
-/* ── MAIN NAV ── */
-.main-nav{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;box-shadow:0 1px 20px rgba(0,0,0,.05)}
-.logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--dark);letter-spacing:3px;text-decoration:none}
-.logo span{color:var(--gold-dark)}
-.main-nav-links{display:flex;gap:28px;list-style:none}
-.main-nav-links a{color:var(--muted);font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:color .2s}
-.main-nav-links a:hover{color:var(--dark)}
-.nav-icons{display:flex;gap:10px}
-.nav-icon{width:38px;height:38px;border:1.5px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;position:relative}
-.nav-icon:hover{border-color:var(--gold-dark);background:var(--gold-light)}
-.nav-icon svg{width:17px;height:17px;stroke:var(--text);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.cart-dot{position:absolute;top:-3px;right:-3px;background:var(--gold-dark);color:#fff;border-radius:50%;width:15px;height:15px;font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center}
-
-/* ── STICKY CATEGORY NAV ── */
-.cat-nav{background:#fff;border-bottom:2px solid var(--border);position:sticky;top:68px;z-index:190;overflow-x:auto;scrollbar-width:none}
-.cat-nav::-webkit-scrollbar{display:none}
-.cat-nav-inner{display:flex;align-items:center;justify-content:center;min-width:max-content;padding:0 48px;gap:4px}
-.cat-pill{display:flex;align-items:center;gap:8px;padding:14px 20px;font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .25s;letter-spacing:.3px}
-.cat-pill:hover{color:var(--dark);border-bottom-color:var(--gold-dark)}
-.cat-pill.active{color:var(--gold-dark);border-bottom-color:var(--gold-dark)}
-.cat-pill .pill-emoji{font-size:18px}
-
-/* ── HERO ── */
-.hero{background:var(--bg2);padding:80px 48px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;min-height:520px;overflow:hidden;position:relative}
-.hero::after{content:'';position:absolute;right:-80px;top:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(196,149,106,.12),transparent 70%)}
-.hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:18px;display:flex;align-items:center;gap:10px}
-.hero-eyebrow::before{content:'';width:28px;height:1.5px;background:var(--gold-dark)}
-.hero-title{font-family:'Playfair Display',serif;font-size:clamp(40px,5vw,66px);font-weight:700;line-height:1.08;color:var(--dark);margin-bottom:20px}
-.hero-title em{font-style:italic;color:var(--gold-dark)}
-.hero-sub{font-size:16px;color:var(--muted);line-height:1.75;margin-bottom:36px;max-width:420px}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn-hero-primary{background:var(--dark);color:#fff;padding:14px 32px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border:none;border-radius:3px;cursor:pointer;transition:all .25s;text-decoration:none;display:inline-block}
-.btn-hero-primary:hover{background:var(--gold-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(139,94,60,.25)}
-.btn-hero-outline{background:transparent;color:var(--dark);border:1.5px solid var(--border);padding:14px 32px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-radius:3px;cursor:pointer;transition:all .25s;text-decoration:none;display:inline-block}
-.btn-hero-outline:hover{border-color:var(--gold-dark);color:var(--gold-dark)}
-.hero-trust{display:flex;gap:28px;margin-top:44px;padding-top:32px;border-top:1px solid var(--border)}
-.trust-n{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--dark)}
-.trust-l{font-size:11px;color:var(--muted);letter-spacing:.5px;margin-top:2px}
-.hero-right{display:flex;flex-direction:column;gap:16px;position:relative;z-index:1}
-.hero-feat-card{background:#fff;border-radius:14px;padding:22px;display:flex;gap:16px;align-items:center;box-shadow:0 4px 28px rgba(0,0,0,.07);border:1px solid var(--border);transition:transform .3s}
-.hero-feat-card:hover{transform:translateY(-3px)}
-.hero-feat-card:nth-child(2){margin-left:32px}
-.hero-feat-emoji{font-size:42px;flex-shrink:0}
-.hero-feat-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--dark);margin-bottom:4px}
-.hero-feat-price{font-size:18px;font-weight:700;color:var(--gold-dark)}
-.hero-feat-stars{font-size:11px;color:#F59E0B;margin-top:4px}
-
-/* ── MARQUEE ── */
-.marquee{background:var(--dark);padding:14px 0;overflow:hidden}
-.marquee-track{display:flex;animation:scroll 28s linear infinite;white-space:nowrap}
-.marquee-item{padding:0 32px;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.6);display:flex;align-items:center;gap:16px}
-.marquee-dot{color:var(--gold);font-size:14px}
-@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-/* ── SECTION COMMON ── */
-.cat-section{padding:90px 48px}
-.cat-section:nth-child(odd){background:var(--bg)}
-.cat-section:nth-child(even){background:var(--bg2)}
-
-/* ── CATEGORY BANNER ── */
-.cat-banner{border-radius:18px;overflow:hidden;margin-bottom:60px;position:relative;display:flex;align-items:center;min-height:260px;padding:48px 56px}
-.cat-banner-text{position:relative;z-index:2}
-.cat-badge{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:6px 16px;border-radius:30px;margin-bottom:14px}
-.cat-heading{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,52px);font-weight:700;line-height:1.1;margin-bottom:12px}
-.cat-caption{font-size:16px;line-height:1.65;max-width:460px;opacity:.8}
-.cat-banner-deco{position:absolute;right:0;top:0;bottom:0;width:45%;display:flex;align-items:center;justify-content:center;font-size:120px;opacity:.18;pointer-events:none}
-.cat-banner-deco2{position:absolute;right:80px;top:50%;transform:translateY(-50%);display:flex;gap:20px;align-items:center}
-.deco-icon{font-size:64px;opacity:.25;filter:drop-shadow(0 4px 12px rgba(0,0,0,.15))}
-
-/* Kitchen */
-.banner-kitchen{background:linear-gradient(135deg,#3D1F0A 0%,#7B3A1A 40%,#C4581A 100%);color:#fff}
-.banner-kitchen .cat-badge{background:rgba(255,255,255,.15);color:#FFD4B0;border:1px solid rgba(255,255,255,.2)}
-/* Home */
-.banner-home{background:linear-gradient(135deg,#0D2B1A 0%,#1E5C35 40%,#2E8B57 100%);color:#fff}
-.banner-home .cat-badge{background:rgba(255,255,255,.15);color:#B8F0CE;border:1px solid rgba(255,255,255,.2)}
-/* Smart */
-.banner-smart{background:linear-gradient(135deg,#0D1B3E 0%,#1A3070 40%,#2B50C0 100%);color:#fff}
-.banner-smart .cat-badge{background:rgba(255,255,255,.15);color:#B8CCFF;border:1px solid rgba(255,255,255,.2)}
-/* Best */
-.banner-best{background:linear-gradient(135deg,#2D1F00 0%,#7A4F00 40%,#C9950A 100%);color:#fff}
-.banner-best .cat-badge{background:rgba(255,255,255,.15);color:#FFE9A0;border:1px solid rgba(255,255,255,.2)}
-/* Pet */
-.banner-pet{background:linear-gradient(135deg,#1E0A35 0%,#4A2580 40%,#7B50C0 100%);color:#fff}
-.banner-pet .cat-badge{background:rgba(255,255,255,.15);color:#DDD0FF;border:1px solid rgba(255,255,255,.2)}
-
-/* ── PRODUCTS GRID ── */
-.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-
-/* ── PRODUCT CARD ── */
-.product-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;overflow:hidden;transition:all .35s;position:relative;display:flex;flex-direction:column}
-.product-card:hover{border-color:rgba(196,149,106,.5);transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
-.pc-badge{position:absolute;top:12px;left:12px;z-index:3;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:20px}
-.pc-badge.hot{background:#E63946;color:#fff}
-.pc-badge.new{background:#2D6A4F;color:#fff}
-.pc-badge.top{background:var(--gold-dark);color:#fff}
-.pc-badge.sale{background:#E07B39;color:#fff}
-.pc-badge.pick{background:#3D5A9A;color:#fff}
-.pc-badge.love{background:#7B6FAA;color:#fff}
-.pc-img-wrap{height:220px;overflow:hidden;background:var(--bg3);flex-shrink:0;position:relative}
-.pc-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
-.pc-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:72px;background:var(--bg3)}
-.product-card:hover .pc-img-wrap img{transform:scale(1.07)}
-.pc-quick{position:absolute;bottom:-44px;left:0;right:0;background:rgba(24,22,14,.85);color:#fff;text-align:center;padding:12px;font-size:12px;font-weight:600;letter-spacing:1px;transition:bottom .3s;cursor:pointer}
-.product-card:hover .pc-quick{bottom:0}
-.pc-body{padding:18px 20px 22px;flex:1;display:flex;flex-direction:column}
-.pc-cat{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:6px}
-.pc-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:var(--dark);margin-bottom:8px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pc-desc{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pc-stars{display:flex;align-items:center;gap:5px;margin-bottom:12px}
-.pc-stars-icons{color:#F59E0B;font-size:13px;letter-spacing:1px}
-.pc-stars-count{font-size:11px;color:var(--muted)}
-.pc-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:16px;flex-wrap:wrap}
-.pc-price{font-size:20px;font-weight:700;color:var(--dark)}
-.pc-price-old{font-size:13px;color:var(--muted);text-decoration:line-through}
-.pc-save{font-size:10px;background:#FEF3C7;color:#92400E;padding:3px 8px;border-radius:20px;font-weight:700}
-.pc-btns{display:flex;gap:8px;margin-top:auto}
-.btn-cart{flex:1;background:var(--dark);color:#fff;border:none;padding:12px 10px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;border-radius:7px;cursor:pointer;transition:all .25s}
-.btn-cart:hover{background:var(--gold-dark)}
-.btn-buy{background:transparent;color:var(--gold-dark);border:1.5px solid var(--gold-dark);padding:12px 14px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:7px;cursor:pointer;transition:all .25s;white-space:nowrap}
-.btn-buy:hover{background:var(--gold-dark);color:#fff}
-
-/* ── VIEW ALL CTA ── */
-.view-all-wrap{text-align:center;margin-top:44px}
-.btn-view-all{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1.5px solid var(--border);color:var(--text);padding:14px 32px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-radius:3px;cursor:pointer;transition:all .25s;text-decoration:none}
-.btn-view-all:hover{border-color:var(--gold-dark);color:var(--gold-dark)}
-
-/* ── TRUST BAR ── */
-.trust-bar{background:var(--dark);padding:48px}
-.trust-bar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;max-width:1000px;margin:0 auto;text-align:center}
-.tb-icon{font-size:32px;margin-bottom:12px}
-.tb-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#fff;margin-bottom:6px}
-.tb-text{font-size:13px;color:rgba(255,255,255,.45);line-height:1.6}
-
-/* ── TESTIMONIALS ── */
-.testimonials{padding:90px 48px;background:var(--bg3)}
-.testi-header{text-align:center;margin-bottom:56px}
-.section-tag{font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:12px;display:block}
-.section-h{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);font-weight:700;color:var(--dark)}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.testi-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:32px;transition:all .3s}
-.testi-card:hover{border-color:rgba(196,149,106,.4);box-shadow:0 8px 32px rgba(0,0,0,.07)}
-.testi-q{font-size:36px;color:var(--gold);line-height:1;margin-bottom:12px;font-family:Georgia,serif}
-.testi-stars{color:#F59E0B;font-size:15px;margin-bottom:14px}
-.testi-text{font-size:14px;color:var(--text);line-height:1.75;margin-bottom:22px}
-.testi-author{display:flex;align-items:center;gap:12px}
-.testi-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--gold-dark),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0}
-.testi-name{font-weight:600;font-size:14px;color:var(--dark)}
-.testi-loc{font-size:12px;color:var(--muted);margin-top:1px}
-
-/* ── NEWSLETTER ── */
-.newsletter{background:var(--dark);padding:90px 48px;text-align:center}
-.nl-tag{font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block}
-.nl-h{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);font-weight:700;color:#fff;margin-bottom:12px}
-.nl-sub{font-size:15px;color:rgba(255,255,255,.45);margin-bottom:36px;line-height:1.65}
-.nl-form{display:flex;max-width:440px;margin:0 auto}
-.nl-input{flex:1;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-right:none;color:#fff;padding:14px 20px;font-size:14px;outline:none;font-family:'Inter',sans-serif;border-radius:3px 0 0 3px}
-.nl-input::placeholder{color:rgba(255,255,255,.3)}
-.nl-input:focus{border-color:var(--gold)}
-.nl-btn{background:var(--gold-dark);color:#fff;border:none;padding:14px 24px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;border-radius:0 3px 3px 0;transition:background .25s}
-.nl-btn:hover{background:var(--gold)}
-
-/* ── FOOTER ── */
-footer{background:var(--bg2);border-top:1.5px solid var(--border);padding:72px 48px 36px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;margin-bottom:52px}
-.footer-logo{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--dark);margin-bottom:12px}
-.footer-logo span{color:var(--gold-dark)}
-.footer-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:24px}
-.footer-socials{display:flex;gap:8px}
-.social-ico{width:36px;height:36px;border:1.5px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;transition:all .2s}
-.social-ico:hover{border-color:var(--gold-dark);background:var(--gold-light)}
-.fc-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--dark);margin-bottom:18px}
-.fc-links{list-style:none;display:flex;flex-direction:column;gap:10px}
-.fc-links a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .2s}
-.fc-links a:hover{color:var(--gold-dark)}
-.footer-bottom{border-top:1.5px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center}
-.footer-copy{font-size:12px;color:var(--muted)}
-.footer-copy span{color:var(--gold-dark)}
-.pay-icons{display:flex;gap:6px;font-size:20px}
-
-/* ── SCROLL TOP ── */
-.scroll-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--dark);color:#fff;border:none;border-radius:8px;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:999;transition:all .3s;opacity:0;pointer-events:none;box-shadow:0 4px 18px rgba(0,0,0,.2)}
-.scroll-top.on{opacity:1;pointer-events:all}
-.scroll-top:hover{background:var(--gold-dark);transform:translateY(-3px)}
-
-/* ── CART SIDEBAR ── */
-.cart-bg{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:300;opacity:0;pointer-events:none;transition:opacity .3s}
-.cart-bg.on{opacity:1;pointer-events:all}
-.cart-panel{position:fixed;top:0;right:-460px;width:460px;height:100vh;background:#fff;border-left:1.5px solid var(--border);z-index:301;display:flex;flex-direction:column;transition:right .4s cubic-bezier(.4,0,.2,1);box-shadow:-8px 0 40px rgba(0,0,0,.1)}
-.cart-panel.on{right:0}
-.cart-head{padding:26px 28px;border-bottom:1.5px solid var(--border);display:flex;justify-content:space-between;align-items:center}
-.cart-title{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:var(--dark)}
-.cart-close-btn{background:none;border:none;font-size:22px;color:var(--muted);cursor:pointer;transition:color .2s}
-.cart-close-btn:hover{color:var(--gold-dark)}
-.cart-empty-state{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--muted)}
-.cart-empty-icon{font-size:52px}
-
-/* ── ADMIN LINK ── */
-.admin-float{position:fixed;bottom:28px;left:28px;background:var(--gold-dark);color:#fff;padding:10px 18px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;letter-spacing:.5px;box-shadow:0 4px 18px rgba(139,94,60,.3);transition:all .25s;z-index:99}
-.admin-float:hover{background:var(--dark);transform:translateY(-2px)}
-
-/* ── RESPONSIVE ── */
-@media(max-width:1100px){.products-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:900px){
-  .main-nav{padding:0 20px}.main-nav-links{display:none}
-  .cat-nav-inner{justify-content:flex-start}
-  .hero{grid-template-columns:1fr;padding:60px 20px}.hero-right{display:none}
-  .cat-section{padding:60px 20px}
-  .cat-banner{padding:36px 28px;min-height:200px}
-  .cat-banner-deco2{display:none}
-  .products-grid{grid-template-columns:1fr 1fr;gap:14px}
-  .trust-bar-grid{grid-template-columns:repeat(2,1fr)}
-  .testi-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr 1fr}
-  footer{padding:48px 20px 28px}
-}
-@media(max-width:520px){
-  .products-grid{grid-template-columns:1fr}
-  .hero-btns{flex-direction:column}
-  .nl-form{flex-direction:column}
-  .nl-input{border-right:1.5px solid rgba(255,255,255,.15);border-bottom:none;border-radius:3px 3px 0 0}
-  .nl-btn{border-radius:0 0 3px 3px}
-}
-</style>
+<title>Premium Home & Lifestyle Store | LiveaseUS</title>
+<meta name="description" content="Practical home, kitchen, smart home, and pet essentials. Free US shipping on orders $50+."/>
+<link rel="stylesheet" href="/styles.css"/>
 </head>
 <body>
-
-<!-- Top bar -->
-<div class="topbar">🇺🇸 Free US Shipping on $50+ &nbsp;<span>|</span>&nbsp; Same-Day Dispatch &nbsp;<span>|</span>&nbsp; 30-Day Returns &nbsp;<span>|</span>&nbsp; 50,000+ Happy Customers</div>
-
-<!-- Main Nav -->
-<nav class="main-nav">
-  <a href="/" class="logo">LIVEASE<span>US</span></a>
-  <ul class="main-nav-links">
-    <li><a href="#kitchen">Kitchen</a></li>
-    <li><a href="#home-org">Home</a></li>
-    <li><a href="#smart-home">Smart Home</a></li>
-    <li><a href="#best-sellers">Best Sellers</a></li>
-    <li><a href="#pet">Pet</a></li>
+<div class="topbar">Free US Shipping On Orders $50+ <span>|</span> Tracked Delivery <span>|</span> 30-Day Returns</div>
+<nav class="mainnav">
+  <a href="/" class="logo">LIVEASE<em>US</em></a>
+  <ul class="nav-links">
+    <li><a href="/#best-sellers">Best Sellers</a></li>
+    <li><a href="/#kitchen">Kitchen</a></li>
+    <li><a href="/#home-org">Home</a></li>
+    <li><a href="/#smart-home">Smart Home</a></li>
+    <li><a href="/#pet">Pet</a></li>
   </ul>
-  <div class="nav-icons">
+  <div class="nav-r">
     <div class="nav-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
-    <div class="nav-icon" onclick="openCart()" style="cursor:pointer">
+    <div class="nav-icon" onclick="oC()">
       <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-      <div class="cart-dot" id="cartCount">0</div>
+      <div class="cart-badge" id="cb">0</div>
     </div>
   </div>
 </nav>
-
-<!-- Sticky Category Nav -->
-<nav class="cat-nav" id="catNav">
-  <div class="cat-nav-inner">
-    <a class="cat-pill active" href="#kitchen" onclick="setActive(this)"><span class="pill-emoji">🍳</span> Kitchen Essentials</a>
-    <a class="cat-pill" href="#home-org" onclick="setActive(this)"><span class="pill-emoji">🏠</span> Home Organization</a>
-    <a class="cat-pill" href="#smart-home" onclick="setActive(this)"><span class="pill-emoji">💡</span> Smart Home Finds</a>
-    <a class="cat-pill" href="#best-sellers" onclick="setActive(this)"><span class="pill-emoji">🔥</span> Best Sellers</a>
-    <a class="cat-pill" href="#pet" onclick="setActive(this)"><span class="pill-emoji">🐾</span> Pet Home Essentials</a>
-  </div>
-</nav>
-
-<!-- HERO -->
+<nav class="catnav"><div class="catnav-inner">
+  <a href="#best-sellers" class="active">🔥 Best Sellers</a>
+  <a href="#kitchen">🍳 Kitchen Essentials</a>
+  <a href="#home-org">🏠 Home Organization</a>
+  <a href="#smart-home">💡 Smart Home Finds</a>
+  <a href="#pet">🐾 Pet Home Essentials</a>
+</div></nav>
 <section class="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">America's #1 Lifestyle Store</div>
-    <h1 class="hero-title">Premium Home &<br><em>Lifestyle</em> Finds</h1>
-    <p class="hero-sub">Five curated collections of trending, winning products loved by Americans — sourced from verified suppliers and delivered fast.</p>
-    <div class="hero-btns">
-      <a href="#best-sellers" class="btn-hero-primary">Shop Best Sellers</a>
-      <a href="#kitchen" class="btn-hero-outline">Browse Collections</a>
-    </div>
-    <div class="hero-trust">
-      <div><div class="trust-n">50K+</div><div class="trust-l">Happy Customers</div></div>
-      <div><div class="trust-n">4.9★</div><div class="trust-l">Avg. Rating</div></div>
-      <div><div class="trust-n">48hr</div><div class="trust-l">US Delivery</div></div>
-      <div><div class="trust-n">200+</div><div class="trust-l">Products</div></div>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-feat-card">
-      <div class="hero-feat-emoji">🍳</div>
-      <div>
-        <div class="hero-feat-name">Bamboo Drawer Organizer Set</div>
-        <div class="hero-feat-price">$18.99</div>
-        <div class="hero-feat-stars">★★★★★ 4,821 reviews</div>
-      </div>
-    </div>
-    <div class="hero-feat-card">
-      <div class="hero-feat-emoji">💆</div>
-      <div>
-        <div class="hero-feat-name">EMS Neck & Shoulder Massager</div>
-        <div class="hero-feat-price">$24.42</div>
-        <div class="hero-feat-stars">★★★★★ 6,392 reviews</div>
-      </div>
-    </div>
-    <div class="hero-feat-card">
-      <div class="hero-feat-emoji">🐾</div>
-      <div>
-        <div class="hero-feat-name">Auto Pet Water Fountain</div>
-        <div class="hero-feat-price">$34.99</div>
-        <div class="hero-feat-stars">★★★★★ 3,217 reviews</div>
-      </div>
+  <div class="hero-inner">
+    <div class="hero-eye">Curated Home Essentials</div>
+    <h1 class="hero-h1">Smart Finds That Make<br>Home Life Easier</h1>
+    <p class="hero-sub">Discover practical kitchen, home organization, smart home, and pet essentials designed to simplify everyday living.</p>
+    <div class="hero-btns"><a href="#best-sellers" class="btn-p">Shop Best Sellers</a><a href="#kitchen" class="btn-o">Browse All Categories</a></div>
+    <div class="hero-badges">
+      <div class="hb"><div class="hb-ico">🏡</div><div class="hb-txt">Curated Home Finds</div></div>
+      <div class="hb"><div class="hb-ico">📦</div><div class="hb-txt">Fast Tracked Shipping</div></div>
+      <div class="hb"><div class="hb-ico">🔒</div><div class="hb-txt">Secure Checkout</div></div>
+      <div class="hb"><div class="hb-ico">↩️</div><div class="hb-txt">30-Day Returns</div></div>
     </div>
   </div>
 </section>
-
-<!-- Marquee -->
-<div class="marquee"><div class="marquee-track" id="mtrack"></div></div>
-
-<!-- ═══════════════════════════════════════════════
-     🍳 KITCHEN ESSENTIALS
-════════════════════════════════════════════════ -->
-<section class="cat-section" id="kitchen">
-  <div class="cat-banner banner-kitchen">
-    <div class="cat-banner-text">
-      <div class="cat-badge">🍳 Kitchen Essentials</div>
-      <h2 class="cat-heading">Kitchen Essentials</h2>
-      <p class="cat-caption">Smart tools for easier cooking,<br>storage & daily kitchen use.</p>
-    </div>
-    <div class="cat-banner-deco2">
-      <div class="deco-icon">🍳</div>
-      <div class="deco-icon" style="font-size:80px;margin-top:-24px">🔪</div>
-      <div class="deco-icon">🫙</div>
-    </div>
+<section class="cat-sec" id="best-sellers">
+  <div class="sec-hd">
+    <div><div class="sec-lbl">🔥 Best Sellers</div><h2 class="sec-h">Best Sellers</h2></div>
+    <div class="sec-arrows"><button class="arr" onclick="sl('t-best-sellers',-1)">&#8249;</button><button class="arr" onclick="sl('t-best-sellers',1)">&#8250;</button></div>
   </div>
-  <div class="products-grid">
-
-    <div class="product-card">
-      <div class="pc-badge top">Top Rated</div>
-      <div class="pc-img-wrap">
-        <div class="pc-img-placeholder" style="background:linear-gradient(135deg,#FDF3EF,#FDDCC8)">🫙</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Kitchen Storage</div>
-        <div class="pc-name">Airtight Glass Spice Jar Set (12 Jars + Rack)</div>
-        <div class="pc-desc">BPA-free bamboo lids, uniform labeling system. Keeps spices fresh 3x longer.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.9 (3,284)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$34.99</div><div class="pc-price-old">$59.99</div><div class="pc-save">42% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Airtight Glass Spice Jar Set',34.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge hot">Best Seller</div>
-      <div class="pc-img-wrap">
-        <img src="https://oss-cf.cjdropshipping.com/product/2026/06/30/05/47189e10-acf9-4457-8c2c-8b67de08f9a9_trans.jpeg" alt="Bamboo Drawer Organizer" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/>
-        <div class="pc-img-placeholder" style="display:none;background:linear-gradient(135deg,#FDF3EF,#F5C8A8)">🪵</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Kitchen Organization</div>
-        <div class="pc-name">Bamboo Silverware & Utensil Drawer Organizer</div>
-        <div class="pc-desc">Expandable design fits any drawer. Separate compartments for cutlery, tools & more.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.8 (5,192)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$18.99</div><div class="pc-price-old">$34.99</div><div class="pc-save">46% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Bamboo Drawer Organizer',18.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge new">New Arrival</div>
-      <div class="pc-img-wrap">
-        <div class="pc-img-placeholder" style="background:linear-gradient(135deg,#FEE9E1,#FDDCC8)">🔪</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Food Prep</div>
-        <div class="pc-name">Pro Cutting Board with Built-In Knife Sharpener</div>
-        <div class="pc-desc">Non-slip silicone feet, juice groove, and dual-sided sharpener for always-sharp blades.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★☆</span><span class="pc-stars-count">4.7 (2,847)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$24.99</div><div class="pc-price-old">$44.99</div><div class="pc-save">44% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Pro Cutting Board',24.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge sale">Sale</div>
-      <div class="pc-img-wrap">
-        <div class="pc-img-placeholder" style="background:linear-gradient(135deg,#FDF3EF,#F9E0D0)">⚖️</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Kitchen Gadgets</div>
-        <div class="pc-name">Digital Kitchen Scale – 11lb / 5kg Precision</div>
-        <div class="pc-desc">Accurate to 1g, tare function, easy-read LCD. Perfect for baking, meal prep & dieting.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.9 (8,431)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$16.99</div><div class="pc-price-old">$29.99</div><div class="pc-save">43% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Digital Kitchen Scale',16.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge top">Top Rated</div>
-      <div class="pc-img-wrap">
-        <div class="pc-img-placeholder" style="background:linear-gradient(135deg,#FEE9E1,#FDDCC8)">🥣</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Cookware</div>
-        <div class="pc-name">Collapsible Silicone Measuring Cups & Spoons Set</div>
-        <div class="pc-desc">Space-saving, heat-resistant, dishwasher safe. 14-piece set for all your measuring needs.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.8 (4,126)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$14.99</div><div class="pc-price-old">$26.99</div><div class="pc-save">44% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Silicone Measuring Set',14.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge hot">Trending</div>
-      <div class="pc-img-wrap">
-        <img src="https://oss-cf.cjdropshipping.com/product/2026/06/30/06/a4d96759-832e-4cb2-8f25-854d14f11433_trans.jpeg" alt="Kitchen Rack" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/>
-        <div class="pc-img-placeholder" style="display:none;background:linear-gradient(135deg,#FDF3EF,#F5C8A8)">🗄️</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Kitchen Storage</div>
-        <div class="pc-name">Adjustable Counter-top Kitchen Rack Organizer</div>
-        <div class="pc-desc">Carbon steel, rust-proof, holds cookbooks, tablets, paper towels. Adjustable width.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★☆</span><span class="pc-stars-count">4.6 (1,934)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$28.99</div><div class="pc-price-old">$54.99</div><div class="pc-save">47% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Kitchen Rack Organizer',28.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
+  <div class="ctrack" id="t-best-sellers"><div class="pc" onclick="location='/products/airtight-steel-container'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#FFF3E0,#FFE0B2)"><span>🥫</span><div class="pc-bdg bh">Best Seller</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Airtight Steel Food Container Set</div>
+    <div class="pc-ben">Keeps pantry staples fresh and neatly organized</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.8 (342)</div>
+    <div class="pc-pr"><span class="pc-p">$24.99</span><span class="pc-op">$44.99</span><span class="pc-sv">44% OFF</span></div>
+    <button class="pc-btn">View Product</button>
   </div>
-  <div class="view-all-wrap"><a href="#" class="btn-view-all">View All Kitchen Products →</a></div>
+</div><div class="pc" onclick="location='/products/motion-sensor-night-light'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#FFFDE7,#FFF9C4)"><span>💡</span><div class="pc-bdg bh">Best Seller</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Motion Sensor LED Night Light (2-Pack)</div>
+    <div class="pc-ben">Hands-free lighting for hallways, stairs & bathrooms</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.7 (518)</div>
+    <div class="pc-pr"><span class="pc-p">$16.99</span><span class="pc-op">$29.99</span><span class="pc-sv">43% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/foldable-storage-organizer'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#E8F5E9,#C8E6C9)"><span>📦</span><div class="pc-bdg bh">Best Seller</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Foldable Fabric Storage Organizer Box</div>
+    <div class="pc-ben">Collapses flat when not in use</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.6 (289)</div>
+    <div class="pc-pr"><span class="pc-p">$19.99</span><span class="pc-op">$34.99</span><span class="pc-sv">43% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/pet-water-feeder'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#EDE7F6,#D1C4E9)"><span>🐾</span><div class="pc-bdg bh">Best Seller</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Gravity-Fed Pet Water & Food Feeder</div>
+    <div class="pc-ben">Auto-refills so pets always have access to water</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.7 (402)</div>
+    <div class="pc-pr"><span class="pc-p">$22.99</span><span class="pc-op">$39.99</span><span class="pc-sv">43% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/electric-cleaning-brush'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#E3F2FD,#BBDEFB)"><span>🪥</span><div class="pc-bdg bh">Best Seller</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Electric Spin Scrubber Cleaning Brush</div>
+    <div class="pc-ben">Makes scrubbing tiles, grout, and tubs easier</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.6 (637)</div>
+    <div class="pc-pr"><span class="pc-p">$29.99</span><span class="pc-op">$54.99</span><span class="pc-sv">45% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/kitchen-shelf-organizer'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#FFF3E0,#FFE0B2)"><span>🗄️</span><div class="pc-bdg bh">Best Seller</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Adjustable 2-Tier Counter Shelf Organizer</div>
+    <div class="pc-ben">Doubles usable counter space instantly</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.8 (724)</div>
+    <div class="pc-pr"><span class="pc-p">$21.99</span><span class="pc-op">$38.99</span><span class="pc-sv">44% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div></div>
+  <div class="va"><button class="btn-va">View All Best Sellers →</button></div>
+</section><section class="cat-sec" id="kitchen">
+  <div class="sec-hd">
+    <div><div class="sec-lbl">🍳 Kitchen Essentials</div><h2 class="sec-h">Kitchen Essentials</h2></div>
+    <div class="sec-arrows"><button class="arr" onclick="sl('t-kitchen',-1)">&#8249;</button><button class="arr" onclick="sl('t-kitchen',1)">&#8250;</button></div>
+  </div>
+  <div class="ctrack" id="t-kitchen"><div class="pc" onclick="location='/products/spice-organizer-rack'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#FAFAFA,#F0F0F0)"><span>🧂</span><div class="pc-bdg bn">New Arrival</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Rotating 2-Tier Spice Rack</div>
+    <div class="pc-ben">Keeps all your spices visible and within easy reach</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.7 (481)</div>
+    <div class="pc-pr"><span class="pc-p">$18.99</span><span class="pc-op">$32.99</span><span class="pc-sv">42% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/oil-spray-bottle'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#F1F8E9,#DCEDC8)"><span>🫒</span><div class="pc-bdg bn">New Arrival</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Refillable Glass Oil Misting Spray Bottle</div>
+    <div class="pc-ben">Even oil coating for cooking — easy to control</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.6 (893)</div>
+    <div class="pc-pr"><span class="pc-p">$12.99</span><span class="pc-op">$22.99</span><span class="pc-sv">43% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/fridge-storage-box'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#E3F2FD,#BBDEFB)"><span>❄️</span><div class="pc-bdg bn">New Arrival</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Stackable Fridge Storage Bins (4-Pack)</div>
+    <div class="pc-ben">Keep your fridge tidy and food easy to find</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.7 (612)</div>
+    <div class="pc-pr"><span class="pc-p">$16.99</span><span class="pc-op">$29.99</span><span class="pc-sv">43% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/vegetable-chopper'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#E8F5E9,#C8E6C9)"><span>🥦</span><div class="pc-bdg bn">New Arrival</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Manual Push Vegetable Chopper & Dicer</div>
+    <div class="pc-ben">Dice onions, tomatoes, and veggies quickly</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.6 (748)</div>
+    <div class="pc-pr"><span class="pc-p">$19.99</span><span class="pc-op">$34.99</span><span class="pc-sv">43% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/sink-organizer'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#E0F7FA,#B2EBF2)"><span>🚰</span><div class="pc-bdg bn">New Arrival</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Over-Sink Dish Drying Rack</div>
+    <div class="pc-ben">Maximizes sink-side space for drying dishes</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.7 (394)</div>
+    <div class="pc-pr"><span class="pc-p">$26.99</span><span class="pc-op">$46.99</span><span class="pc-sv">43% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/airtight-container-set'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#FFF3E0,#FFE0B2)"><span>🫙</span><div class="pc-bdg bn">New Arrival</div></div>
+  <div class="pc-body">
+    <div class="pc-name">BPA-Free Dry Goods Container Set (6-Pack)</div>
+    <div class="pc-ben">Lock in freshness with airtight flip-lock lids</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.8 (519)</div>
+    <div class="pc-pr"><span class="pc-p">$22.99</span><span class="pc-op">$39.99</span><span class="pc-sv">43% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div></div>
+  <div class="va"><button class="btn-va">View All Kitchen Essentials →</button></div>
+</section><section class="cat-sec" id="home-org">
+  <div class="sec-hd">
+    <div><div class="sec-lbl">🏠 Home Organization</div><h2 class="sec-h">Home Organization</h2></div>
+    <div class="sec-arrows"><button class="arr" onclick="sl('t-home-org',-1)">&#8249;</button><button class="arr" onclick="sl('t-home-org',1)">&#8250;</button></div>
+  </div>
+  <div class="ctrack" id="t-home-org"><div class="pc" onclick="location='/products/drawer-organizer'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#FFF8E1,#FFECB3)"><span>🗃️</span><div class="pc-bdg bt">Top Rated</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Expandable Bamboo Drawer Organizer Set</div>
+    <div class="pc-ben">Divides drawer space into neat compartments</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.8 (826)</div>
+    <div class="pc-pr"><span class="pc-p">$17.99</span><span class="pc-op">$29.99</span><span class="pc-sv">40% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/foldable-storage-box'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#E8F5E9,#C8E6C9)"><span>📦</span><div class="pc-bdg bt">Top Rated</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Collapsible Fabric Storage Box with Lid</div>
+    <div class="pc-ben">Collapses for compact storage between uses</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.6 (533)</div>
+    <div class="pc-pr"><span class="pc-p">$14.99</span><span class="pc-op">$24.99</span><span class="pc-sv">40% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/cable-organizer'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#E8EAF6,#C5CAE9)"><span>🔌</span><div class="pc-bdg bt">Top Rated</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Desk Cable Management Clips (10-Pack)</div>
+    <div class="pc-ben">Keeps desk cables tidy and tangle-free</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.7 (1,124)</div>
+    <div class="pc-pr"><span class="pc-p">$9.99</span><span class="pc-op">$17.99</span><span class="pc-sv">44% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/closet-space-saver'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#F3E5F5,#E1BEE7)"><span>👔</span><div class="pc-bdg bt">Top Rated</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Velvet Slim Closet Hangers (50-Pack)</div>
+    <div class="pc-ben">Slim profile saves significant closet space</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.8 (2,187)</div>
+    <div class="pc-pr"><span class="pc-p">$18.99</span><span class="pc-op">$32.99</span><span class="pc-sv">42% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/laundry-basket'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#E0F7FA,#B2EBF2)"><span>🧺</span><div class="pc-bdg bt">Top Rated</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Pop-Up Mesh Laundry Hamper (65L)</div>
+    <div class="pc-ben">Pops open instantly, collapses to 3cm flat</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.5 (718)</div>
+    <div class="pc-pr"><span class="pc-p">$14.99</span><span class="pc-op">$26.99</span><span class="pc-sv">44% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/wall-storage-rack'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#FFF3E0,#FFE0B2)"><span>🔧</span><div class="pc-bdg bt">Top Rated</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Floating Wall-Mounted Storage Shelf</div>
+    <div class="pc-ben">Adds storage space to any wall</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.6 (489)</div>
+    <div class="pc-pr"><span class="pc-p">$23.99</span><span class="pc-op">$41.99</span><span class="pc-sv">43% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div></div>
+  <div class="va"><button class="btn-va">View All Home Organization →</button></div>
+</section><section class="cat-sec" id="smart-home">
+  <div class="sec-hd">
+    <div><div class="sec-lbl">💡 Smart Home Finds</div><h2 class="sec-h">Smart Home Finds</h2></div>
+    <div class="sec-arrows"><button class="arr" onclick="sl('t-smart-home',-1)">&#8249;</button><button class="arr" onclick="sl('t-smart-home',1)">&#8250;</button></div>
+  </div>
+  <div class="ctrack" id="t-smart-home"><div class="pc" onclick="location='/products/motion-sensor-light'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#FFFDE7,#FFF9C4)"><span>🔦</span><div class="pc-bdg bs">Popular</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Wireless Motion-Activated Closet Light</div>
+    <div class="pc-ben">Lights up automatically when you open a cabinet</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.7 (1,382)</div>
+    <div class="pc-pr"><span class="pc-p">$14.99</span><span class="pc-op">$26.99</span><span class="pc-sv">44% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/smart-plug'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#E8EAF6,#C5CAE9)"><span>🔌</span><div class="pc-bdg bs">Popular</div></div>
+  <div class="pc-body">
+    <div class="pc-name">WiFi Smart Plug with Energy Monitor (2-Pack)</div>
+    <div class="pc-ben">Control any outlet from your phone — no hub needed</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.7 (2,043)</div>
+    <div class="pc-pr"><span class="pc-p">$22.99</span><span class="pc-op">$39.99</span><span class="pc-sv">43% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/mini-humidifier'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#E3F2FD,#BBDEFB)"><span>💧</span><div class="pc-bdg bs">Popular</div></div>
+  <div class="pc-body">
+    <div class="pc-name">USB Mini Cool Mist Desk Humidifier</div>
+    <div class="pc-ben">Adds moisture to dry indoor air at your desk</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.5 (876)</div>
+    <div class="pc-pr"><span class="pc-p">$17.99</span><span class="pc-op">$31.99</span><span class="pc-sv">44% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/led-night-lamp'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#FFFDE7,#FFF9C4)"><span>🌙</span><div class="pc-bdg bs">Popular</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Touch-Dimming LED Bedside Night Lamp</div>
+    <div class="pc-ben">Adjustable soft light for reading or winding down</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.8 (1,247)</div>
+    <div class="pc-pr"><span class="pc-p">$19.99</span><span class="pc-op">$34.99</span><span class="pc-sv">43% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/portable-desk-fan'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#E0F7FA,#B2EBF2)"><span>🌀</span><div class="pc-bdg bs">Popular</div></div>
+  <div class="pc-body">
+    <div class="pc-name">USB Rechargeable Portable Desk Fan</div>
+    <div class="pc-ben">Personal cooling for desk or nightstand use</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.6 (1,583)</div>
+    <div class="pc-pr"><span class="pc-p">$18.99</span><span class="pc-op">$32.99</span><span class="pc-sv">42% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/wireless-doorbell'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#FFF8E1,#FFECB3)"><span>🔔</span><div class="pc-bdg bs">Popular</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Wireless Plug-In Doorbell with Chime Receiver</div>
+    <div class="pc-ben">Easy no-wiring doorbell for any home</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.6 (924)</div>
+    <div class="pc-pr"><span class="pc-p">$21.99</span><span class="pc-op">$38.99</span><span class="pc-sv">44% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div></div>
+  <div class="va"><button class="btn-va">View All Smart Home Finds →</button></div>
+</section><section class="cat-sec" id="pet">
+  <div class="sec-hd">
+    <div><div class="sec-lbl">🐾 Pet Home Essentials</div><h2 class="sec-h">Pet Home Essentials</h2></div>
+    <div class="sec-arrows"><button class="arr" onclick="sl('t-pet',-1)">&#8249;</button><button class="arr" onclick="sl('t-pet',1)">&#8250;</button></div>
+  </div>
+  <div class="ctrack" id="t-pet"><div class="pc" onclick="location='/products/pet-water-bottle'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#E8EAF6,#C5CAE9)"><span>💧</span><div class="pc-bdg bt">Top Rated</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Portable Pet Water Bottle with Dispenser</div>
+    <div class="pc-ben">Hydrate pets on walks without a separate bowl</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.7 (843)</div>
+    <div class="pc-pr"><span class="pc-p">$14.99</span><span class="pc-op">$26.99</span><span class="pc-sv">44% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/pet-feeding-mat'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#E8F5E9,#C8E6C9)"><span>🟩</span><div class="pc-bdg bt">Top Rated</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Non-Slip Silicone Pet Feeding Mat</div>
+    <div class="pc-ben">Keeps pet bowls in place and protects floors</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.7 (1,027)</div>
+    <div class="pc-pr"><span class="pc-p">$11.99</span><span class="pc-op">$19.99</span><span class="pc-sv">40% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/pet-hair-remover'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#EDE7F6,#D1C4E9)"><span>🐾</span><div class="pc-bdg bt">Top Rated</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Self-Cleaning Pet Hair Remover Roller</div>
+    <div class="pc-ben">Removes pet hair without tape refills — reusable</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.8 (2,341)</div>
+    <div class="pc-pr"><span class="pc-p">$17.99</span><span class="pc-op">$29.99</span><span class="pc-sv">40% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/pet-storage-container'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#FFF3E0,#FFE0B2)"><span>🐕</span><div class="pc-bdg bt">Top Rated</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Airtight Pet Food Storage Container</div>
+    <div class="pc-ben">Keeps dry pet food fresh and away from pests</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.7 (612)</div>
+    <div class="pc-pr"><span class="pc-p">$19.99</span><span class="pc-op">$34.99</span><span class="pc-sv">43% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/pet-grooming-brush'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#F3E5F5,#E1BEE7)"><span>🪮</span><div class="pc-bdg bt">Top Rated</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Self-Cleaning Slicker Pet Grooming Brush</div>
+    <div class="pc-ben">Removes loose fur with a one-click release</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.7 (1,938)</div>
+    <div class="pc-pr"><span class="pc-p">$15.99</span><span class="pc-op">$27.99</span><span class="pc-sv">43% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div><div class="pc" onclick="location='/products/pet-travel-bowl'">
+  <div class="pc-img" style="background:linear-gradient(135deg,#E8F5E9,#C8E6C9)"><span>🥣</span><div class="pc-bdg bt">Top Rated</div></div>
+  <div class="pc-body">
+    <div class="pc-name">Collapsible Silicone Pet Travel Bowl Set</div>
+    <div class="pc-ben">Folds flat for walks, trips, and outdoor use</div>
+    <div class="pc-stars"><s>★★★★★</s> 4.8 (769)</div>
+    <div class="pc-pr"><span class="pc-p">$12.99</span><span class="pc-op">$22.99</span><span class="pc-sv">43% OFF</span></div>
+    <button class="pc-btn">View Product</button>
+  </div>
+</div></div>
+  <div class="va"><button class="btn-va">View All Pet Home Essentials →</button></div>
 </section>
-
-<!-- ═══════════════════════════════════════════════
-     🏠 HOME ORGANIZATION
-════════════════════════════════════════════════ -->
-<section class="cat-section" id="home-org">
-  <div class="cat-banner banner-home">
-    <div class="cat-banner-text">
-      <div class="cat-badge">🏠 Home Organization</div>
-      <h2 class="cat-heading">Home Organization</h2>
-      <p class="cat-caption">Declutter every corner with<br>space-saving solutions.</p>
-    </div>
-    <div class="cat-banner-deco2">
-      <div class="deco-icon">🗃️</div>
-      <div class="deco-icon" style="font-size:80px;margin-top:-24px">📦</div>
-      <div class="deco-icon">🧺</div>
-    </div>
-  </div>
-  <div class="products-grid">
-
-    <div class="product-card">
-      <div class="pc-badge hot">Best Seller</div>
-      <div class="pc-img-wrap">
-        <div class="pc-img-placeholder" style="background:linear-gradient(135deg,#EFF6F1,#C8E8D4)">📦</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Storage Solutions</div>
-        <div class="pc-name">Stackable Clear Storage Bins with Lids (6-Pack)</div>
-        <div class="pc-desc">Crystal-clear visibility, airtight snap lids. Perfect for pantry, closet, or garage.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.9 (7,821)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$42.99</div><div class="pc-price-old">$74.99</div><div class="pc-save">43% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Clear Storage Bins 6-Pack',42.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge new">New</div>
-      <div class="pc-img-wrap">
-        <div class="pc-img-placeholder" style="background:linear-gradient(135deg,#DCF0E3,#B8E0C8)">🪣</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Closet Organization</div>
-        <div class="pc-name">Foldable Fabric Storage Cubes with Handles (4-Pack)</div>
-        <div class="pc-desc">Reinforced handles, collapsible for storage. Fits any standard cube shelf unit perfectly.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.8 (5,430)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$29.99</div><div class="pc-price-old">$54.99</div><div class="pc-save">45% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Foldable Storage Cubes',29.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge top">Top Rated</div>
-      <div class="pc-img-wrap">
-        <div class="pc-img-placeholder" style="background:linear-gradient(135deg,#EFF6F1,#C8E8D4)">👟</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Entryway</div>
-        <div class="pc-name">Over-Door Shoe Organizer – 24 Pocket Mesh</div>
-        <div class="pc-desc">Heavy-duty metal hooks, fits most doors. Stores 24 pairs — shoes, accessories, pantry items.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★☆</span><span class="pc-stars-count">4.7 (4,156)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$22.99</div><div class="pc-price-old">$39.99</div><div class="pc-save">42% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Over-Door Shoe Organizer',22.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge sale">Sale</div>
-      <div class="pc-img-wrap">
-        <div class="pc-img-placeholder" style="background:linear-gradient(135deg,#DCF0E3,#A8D8B8)">🌬️</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Space Saving</div>
-        <div class="pc-name">Space-Saver Vacuum Storage Bags (8-Pack)</div>
-        <div class="pc-desc">Reduces storage space by 80%. Compatible with any vacuum. Perfect for seasonal clothing & bedding.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.9 (11,243)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$24.99</div><div class="pc-price-old">$44.99</div><div class="pc-save">44% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Vacuum Storage Bags 8-Pack',24.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge pick">Editor Pick</div>
-      <div class="pc-img-wrap">
-        <div class="pc-img-placeholder" style="background:linear-gradient(135deg,#EFF6F1,#C8E8D4)">🧴</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Bathroom</div>
-        <div class="pc-name">Acrylic Makeup & Skincare Organizer Tower</div>
-        <div class="pc-desc">360° rotating base, 5-tier display. Fits up to 90 products — perfect for vanity countertops.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.8 (6,891)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$31.99</div><div class="pc-price-old">$59.99</div><div class="pc-save">47% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Acrylic Organizer Tower',31.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge hot">Trending</div>
-      <div class="pc-img-wrap">
-        <div class="pc-img-placeholder" style="background:linear-gradient(135deg,#DCF0E3,#B8E0C8)">🛏️</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Bedroom</div>
-        <div class="pc-name">Under-Bed Flat Storage Boxes with Wheels (2-Pack)</div>
-        <div class="pc-desc">Smooth-rolling wheels, flip-top lid, handles on both sides. Stores shoes, linens & seasonal items.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★☆</span><span class="pc-stars-count">4.7 (3,482)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$36.99</div><div class="pc-price-old">$64.99</div><div class="pc-save">43% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Under-Bed Storage Boxes',36.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-  </div>
-  <div class="view-all-wrap"><a href="#" class="btn-view-all">View All Home Organization →</a></div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     💡 SMART HOME FINDS
-════════════════════════════════════════════════ -->
-<section class="cat-section" id="smart-home">
-  <div class="cat-banner banner-smart">
-    <div class="cat-banner-text">
-      <div class="cat-badge">💡 Smart Home Finds</div>
-      <h2 class="cat-heading">Smart Home Finds</h2>
-      <p class="cat-caption">Useful gadgets that make<br>everyday living smoother.</p>
-    </div>
-    <div class="cat-banner-deco2">
-      <div class="deco-icon">💡</div>
-      <div class="deco-icon" style="font-size:80px;margin-top:-24px">📱</div>
-      <div class="deco-icon">🔌</div>
-    </div>
-  </div>
-  <div class="products-grid">
-
-    <div class="product-card">
-      <div class="pc-badge hot">Best Seller</div>
-      <div class="pc-img-wrap">
-        <div class="pc-img-placeholder" style="background:linear-gradient(135deg,#EEF1FA,#C8D4F8)">💡</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Lighting</div>
-        <div class="pc-name">RGB LED Strip Lights – 32.8ft Bluetooth App Control</div>
-        <div class="pc-desc">16 million colors, music sync, app & voice control. Transform any room in minutes.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.9 (14,832)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$29.99</div><div class="pc-price-old">$54.99</div><div class="pc-save">45% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('RGB LED Strip Lights',29.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge new">New</div>
-      <div class="pc-img-wrap">
-        <img src="https://cf.cjdropshipping.com/quick/product/5c42fc73-fee2-476e-85ac-5b38dbff32e6.jpg" alt="Mini Air Cooler" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/>
-        <div class="pc-img-placeholder" style="display:none;background:linear-gradient(135deg,#EEF1FA,#C8D4F8)">❄️</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Climate Control</div>
-        <div class="pc-name">Mini Desktop Air Cooler & Humidifier Fan</div>
-        <div class="pc-desc">3-speed settings, USB-powered, 360° rotation. Keeps your desk workspace cool and fresh.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★☆</span><span class="pc-stars-count">4.6 (3,291)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$23.23</div><div class="pc-price-old">$39.99</div><div class="pc-save">42% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Mini Desktop Air Cooler',23.23)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge pick">Editor Pick</div>
-      <div class="pc-img-wrap">
-        <div class="pc-img-placeholder" style="background:linear-gradient(135deg,#D9E0F5,#B8C8F0)">🔌</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Smart Plugs</div>
-        <div class="pc-name">Smart WiFi Plug with Energy Monitor (4-Pack)</div>
-        <div class="pc-desc">Schedule, timer, voice control via Alexa & Google. Track real-time energy usage.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.8 (9,147)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$34.99</div><div class="pc-price-old">$64.99</div><div class="pc-save">46% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Smart WiFi Plugs 4-Pack',34.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge sale">Sale</div>
-      <div class="pc-img-wrap">
-        <img src="https://cf.cjdropshipping.com/17828640/40b9e6ca-6720-4175-8733-feca9f12efcd.jpg" alt="Smart Scale" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/>
-        <div class="pc-img-placeholder" style="display:none;background:linear-gradient(135deg,#EEF1FA,#C8D4F8)">📊</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Health Tech</div>
-        <div class="pc-name">Smart Bluetooth Body Composition Analyzer Scale</div>
-        <div class="pc-desc">13 body metrics including BMI, muscle mass, body fat. Syncs with Apple Health & Fitbit.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.9 (7,392)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$47.99</div><div class="pc-price-old">$89.99</div><div class="pc-save">47% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Smart Body Scale',47.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge top">Top Rated</div>
-      <div class="pc-img-wrap">
-        <div class="pc-img-placeholder" style="background:linear-gradient(135deg,#EEF1FA,#C8D4F8)">🌟</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Ambient Lighting</div>
-        <div class="pc-name">Galaxy Star Projector Night Light with Remote</div>
-        <div class="pc-desc">360° rotating starry sky, 8 lighting modes, built-in speaker. Perfect for bedroom ambiance.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.8 (12,847)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$27.99</div><div class="pc-price-old">$49.99</div><div class="pc-save">44% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Galaxy Star Projector',27.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge hot">Trending</div>
-      <div class="pc-img-wrap">
-        <div class="pc-img-placeholder" style="background:linear-gradient(135deg,#D9E0F5,#B8C8F0)">🔋</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Charging</div>
-        <div class="pc-name">3-in-1 Wireless Charging Stand – Phone, Watch & Pods</div>
-        <div class="pc-desc">15W fast charge, compatible with iPhone & Android. Charges 3 devices simultaneously.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.7 (5,621)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$32.99</div><div class="pc-price-old">$59.99</div><div class="pc-save">45% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('3-in-1 Wireless Charger',32.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-  </div>
-  <div class="view-all-wrap"><a href="#" class="btn-view-all">View All Smart Home Finds →</a></div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     🔥 BEST SELLERS
-════════════════════════════════════════════════ -->
-<section class="cat-section" id="best-sellers">
-  <div class="cat-banner banner-best">
-    <div class="cat-banner-text">
-      <div class="cat-badge">🔥 Best Sellers</div>
-      <h2 class="cat-heading">Best Sellers</h2>
-      <p class="cat-caption">Customer-loved finds picked<br>for daily convenience.</p>
-    </div>
-    <div class="cat-banner-deco2">
-      <div class="deco-icon">🏆</div>
-      <div class="deco-icon" style="font-size:80px;margin-top:-24px">⭐</div>
-      <div class="deco-icon">🔥</div>
-    </div>
-  </div>
-  <div class="products-grid">
-
-    <div class="product-card">
-      <div class="pc-badge hot">🔥 #1 Seller</div>
-      <div class="pc-img-wrap">
-        <img src="https://oss-cf.cjdropshipping.com/product/2026/06/30/07/d8a295e4-e72a-4745-8082-6a0f74246d04_trans.jpeg" alt="EMS Massager" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/>
-        <div class="pc-img-placeholder" style="display:none;background:linear-gradient(135deg,#FDF8ED,#F5E0A8)">💆</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Wellness</div>
-        <div class="pc-name">EMS Pulse Electric Neck & Shoulder Massager</div>
-        <div class="pc-desc">6 massage modes, heat therapy, rechargeable. Instant relief from tension and muscle pain.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.9 (18,492)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$24.42</div><div class="pc-price-old">$49.99</div><div class="pc-save">51% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('EMS Neck Massager',24.42)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge top">🏆 Top Rated</div>
-      <div class="pc-img-wrap">
-        <img src="https://cf.cjdropshipping.com/60bcf757-255c-4032-9ebe-a148509e6587.png" alt="Foot Massager" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/>
-        <div class="pc-img-placeholder" style="display:none;background:linear-gradient(135deg,#FDF8ED,#F5E0A8)">🦶</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Wellness</div>
-        <div class="pc-name">Vibration Heating Foot & Calf Massager + Remote</div>
-        <div class="pc-desc">Shiatsu kneading with heat therapy. Covers feet, ankles & calves. Remote included.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.9 (9,283)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$139.26</div><div class="pc-price-old">$249.99</div><div class="pc-save">44% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Foot Calf Massager',139.26)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge hot">Best Seller</div>
-      <div class="pc-img-wrap">
-        <img src="https://cf.cjdropshipping.com/26629f16-9b86-4956-bba9-6e9116b23f9c.png" alt="Headphones" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/>
-        <div class="pc-img-placeholder" style="display:none;background:linear-gradient(135deg,#FDF8ED,#F5E0A8)">🎧</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Tech & Audio</div>
-        <div class="pc-name">Wireless Noise-Cancelling Over-Ear Headphones</div>
-        <div class="pc-desc">40hr battery, premium ANC, foldable design. Studio-quality sound at an unbeatable price.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.9 (12,748)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$103.55</div><div class="pc-price-old">$199.99</div><div class="pc-save">48% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Noise-Cancelling Headphones',103.55)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge new">New</div>
-      <div class="pc-img-wrap">
-        <img src="https://cf.cjdropshipping.com/6495f711-bce3-4ca5-b089-40394a830ff4.png" alt="Neck Massager" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/>
-        <div class="pc-img-placeholder" style="display:none;background:linear-gradient(135deg,#FDF8ED,#F5E0A8)">🏃</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Wellness</div>
-        <div class="pc-name">Heated TENS EMS Neck Massager with Remote</div>
-        <div class="pc-desc">3 intensity levels, 2 heat modes, cordless. Deep tissue relief anywhere, anytime.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.8 (7,391)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$116.00</div><div class="pc-price-old">$219.99</div><div class="pc-save">47% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Heated TENS Neck Massager',116.00)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge sale">Sale</div>
-      <div class="pc-img-wrap">
-        <img src="https://oss-cf.cjdropshipping.com/product/2026/06/30/06/8d19b6ff-a16a-457e-8caa-45b0446b2089_trans.jpeg" alt="Hair Cap" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/>
-        <div class="pc-img-placeholder" style="display:none;background:linear-gradient(135deg,#FDF8ED,#F5E0A8)">💆‍♀️</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Beauty & Hair</div>
-        <div class="pc-name">Red Light Photon Hair Growth & Scalp Therapy Cap</div>
-        <div class="pc-desc">660nm red light stimulates follicles, reduces shedding. Clinically backed technology.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★☆</span><span class="pc-stars-count">4.7 (4,182)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$79.07</div><div class="pc-price-old">$149.99</div><div class="pc-save">47% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Red Light Hair Cap',79.07)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge pick">Staff Pick</div>
-      <div class="pc-img-wrap">
-        <img src="https://oss-cf.cjdropshipping.com/product/2026/06/30/06/2ad550fa-ceed-4eec-b663-9f74faf7b00b.jpg" alt="Eye Massager" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/>
-        <div class="pc-img-placeholder" style="display:none;background:linear-gradient(135deg,#FDF8ED,#F5E0A8)">👁️</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Eye Care</div>
-        <div class="pc-name">Electric Eye Massager – Red & Blue Light Therapy</div>
-        <div class="pc-desc">Reduces dark circles, puffiness & eye strain. 4 color modes for targeted eye beautification.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.8 (6,021)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$23.78</div><div class="pc-price-old">$44.99</div><div class="pc-save">47% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Electric Eye Massager',23.78)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-  </div>
-  <div class="view-all-wrap"><a href="#" class="btn-view-all">View All Best Sellers →</a></div>
-</section>
-
-<!-- ═══════════════════════════════════════════════
-     🐾 PET HOME ESSENTIALS
-════════════════════════════════════════════════ -->
-<section class="cat-section" id="pet">
-  <div class="cat-banner banner-pet">
-    <div class="cat-banner-text">
-      <div class="cat-badge">🐾 Pet Home Essentials</div>
-      <h2 class="cat-heading">Pet Home Essentials</h2>
-      <p class="cat-caption">Helpful home products for<br>pets and pet owners.</p>
-    </div>
-    <div class="cat-banner-deco2">
-      <div class="deco-icon">🐕</div>
-      <div class="deco-icon" style="font-size:80px;margin-top:-24px">🐈</div>
-      <div class="deco-icon">🦴</div>
-    </div>
-  </div>
-  <div class="products-grid">
-
-    <div class="product-card">
-      <div class="pc-badge hot">Best Seller</div>
-      <div class="pc-img-wrap">
-        <div class="pc-img-placeholder" style="background:linear-gradient(135deg,#F3F1FA,#DDD0FF)">🐾</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Pet Feeding</div>
-        <div class="pc-name">Automatic Pet Feeder – 6L with WiFi App Control</div>
-        <div class="pc-desc">Schedule up to 6 meals/day, portion control, voice recording. Works for cats & dogs.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.9 (8,241)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$54.99</div><div class="pc-price-old">$99.99</div><div class="pc-save">45% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Automatic Pet Feeder',54.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge new">New</div>
-      <div class="pc-img-wrap">
-        <div class="pc-img-placeholder" style="background:linear-gradient(135deg,#E5E0F5,#DDD0FF)">💧</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Pet Hydration</div>
-        <div class="pc-name">Smart Pet Water Fountain – 2.4L Silent Pump</div>
-        <div class="pc-desc">Triple filtration system, LED indicator, ultra-quiet pump. Encourages pets to drink more.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.8 (6,134)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$34.99</div><div class="pc-price-old">$64.99</div><div class="pc-save">46% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Smart Pet Water Fountain',34.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge top">Top Rated</div>
-      <div class="pc-img-wrap">
-        <img src="https://cf.cjdropshipping.com/ecd24e1d-1e1d-4f15-a45a-2a4929d0e09b.png" alt="Dog Grooming" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/>
-        <div class="pc-img-placeholder" style="display:none;background:linear-gradient(135deg,#F3F1FA,#DDD0FF)">✂️</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Pet Grooming</div>
-        <div class="pc-name">Professional Dog Grooming Clippers Kit – Low Noise</div>
-        <div class="pc-desc">USB rechargeable, whisper-quiet motor, 4 guide combs. Safe for all coat types.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.8 (5,912)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$51.07</div><div class="pc-price-old">$94.99</div><div class="pc-save">46% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Dog Grooming Clippers Kit',51.07)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge love">Pet Love</div>
-      <div class="pc-img-wrap">
-        <div class="pc-img-placeholder" style="background:linear-gradient(135deg,#E5E0F5,#CCCAFF)">🐱</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Pet Comfort</div>
-        <div class="pc-name">Elevated Stainless Steel Pet Bowl Stand Set</div>
-        <div class="pc-desc">Adjustable height 5 levels, non-slip base, 2 bowls included. Reduces neck strain for pets.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★☆</span><span class="pc-stars-count">4.7 (3,847)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$38.99</div><div class="pc-price-old">$69.99</div><div class="pc-save">44% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Elevated Pet Bowl Stand',38.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge sale">Sale</div>
-      <div class="pc-img-wrap">
-        <div class="pc-img-placeholder" style="background:linear-gradient(135deg,#F3F1FA,#DDD0FF)">🧹</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Home Cleaning</div>
-        <div class="pc-name">Reusable Pet Hair Remover Roller – Self-Cleaning</div>
-        <div class="pc-desc">No tape refills needed, self-cleaning base, works on furniture, car seats & clothing.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.9 (22,813)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$19.99</div><div class="pc-price-old">$36.99</div><div class="pc-save">46% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Pet Hair Remover Roller',19.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="pc-badge hot">Trending</div>
-      <div class="pc-img-wrap">
-        <div class="pc-img-placeholder" style="background:linear-gradient(135deg,#E5E0F5,#DDD0FF)">🌿</div>
-        <div class="pc-quick">⚡ Quick View</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">Pet Health</div>
-        <div class="pc-name">Pet Dental Hygiene Finger Wipes – 50 Pack</div>
-        <div class="pc-desc">Enzyme-based formula removes tartar & plaque. Vet-approved for cats and dogs of all sizes.</div>
-        <div class="pc-stars"><span class="pc-stars-icons">★★★★★</span><span class="pc-stars-count">4.8 (4,921)</span></div>
-        <div class="pc-price-row"><div class="pc-price">$16.99</div><div class="pc-price-old">$29.99</div><div class="pc-save">43% OFF</div></div>
-        <div class="pc-btns"><button class="btn-cart" onclick="addToCart('Pet Dental Wipes 50-Pack',16.99)">Add to Cart</button><button class="btn-buy">Buy Now</button></div>
-      </div>
-    </div>
-
-  </div>
-  <div class="view-all-wrap"><a href="#" class="btn-view-all">View All Pet Essentials →</a></div>
-</section>
-
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="trust-bar-grid">
-    <div><div class="tb-icon">🚀</div><div class="tb-title">Lightning Shipping</div><p class="tb-text">Same-day dispatch · 48hr US delivery across all 50 states</p></div>
-    <div><div class="tb-icon">🛡️</div><div class="tb-title">30-Day Guarantee</div><p class="tb-text">Not satisfied? Full refund or exchange — no questions asked</p></div>
-    <div><div class="tb-icon">💎</div><div class="tb-title">Premium Quality</div><p class="tb-text">Every product verified through CJ Dropshipping's supplier network</p></div>
-    <div><div class="tb-icon">🇺🇸</div><div class="tb-title">US-Based Support</div><p class="tb-text">24/7 real customer support — not bots. We pick up.</p></div>
-  </div>
+<div class="trust-strip"><div class="tg">
+  <div><div class="tg-ico">📦</div><div class="tg-t">Tracked Shipping</div><p class="tg-s">Every order ships with tracking</p></div>
+  <div><div class="tg-ico">🔒</div><div class="tg-t">Secure Checkout</div><p class="tg-s">SSL-encrypted payments</p></div>
+  <div><div class="tg-ico">↩️</div><div class="tg-t">30-Day Returns</div><p class="tg-s">Not satisfied? Return within 30 days</p></div>
+  <div><div class="tg-ico">🏡</div><div class="tg-t">Curated Selection</div><p class="tg-s">Practical finds for everyday use</p></div>
+</div></div>
+<footer><div class="fg">
+  <div><div class="fl">LIVEASE<em>US</em></div><p class="fd">Practical home, kitchen, smart home, and pet essentials for everyday living.</p></div>
+  <div><div class="fch">Shop</div><ul class="fcl"><li><a href="#best-sellers">Best Sellers</a></li><li><a href="#kitchen">Kitchen Essentials</a></li><li><a href="#home-org">Home Organization</a></li><li><a href="#smart-home">Smart Home Finds</a></li><li><a href="#pet">Pet Essentials</a></li></ul></div>
+  <div><div class="fch">Support</div><ul class="fcl"><li><a href="/pages/track">Track Order</a></li><li><a href="/pages/contact">Contact Us</a></li><li><a href="/pages/shipping">Shipping Policy</a></li><li><a href="/pages/returns">Return &amp; Refund</a></li><li><a href="/pages/faq">FAQ</a></li></ul></div>
+  <div><div class="fch">Company</div><ul class="fcl"><li><a href="/pages/about">About Us</a></li><li><a href="/pages/privacy">Privacy Policy</a></li><li><a href="/pages/terms">Terms of Service</a></li></ul></div>
+</div><div class="fb"><span>© 2026 LiveaseUS. All rights reserved.</span><span>💳 🏦 🔒</span></div></footer>
+<div class="cart-ov" id="co" onclick="cC()"></div>
+<div class="cart-dr" id="cd">
+  <div class="cart-hd"><h3>Your Cart</h3><button class="cart-cl" onclick="cC()">✕</button></div>
+  <div class="cart-bd" id="cdb"><div class="ce"><div class="ce-ico">🛍️</div><p>Your cart is empty</p></div></div>
+  <div class="cart-ft" id="cdf"></div>
 </div>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="testi-header">
-    <span class="section-tag">Real Reviews</span>
-    <h2 class="section-h">50,000+ Happy Customers</h2>
-  </div>
-  <div class="testi-grid">
-    <div class="testi-card">
-      <div class="testi-q">"</div>
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">The spice rack and kitchen organizers completely transformed my pantry. Everything arrived well-packaged and exactly as described. Will be ordering more!</p>
-      <div class="testi-author"><div class="testi-avatar">JM</div><div><div class="testi-name">James Mitchell</div><div class="testi-loc">Houston, TX</div></div></div>
-    </div>
-    <div class="testi-card">
-      <div class="testi-q">"</div>
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">The neck massager is life-changing. I sit at a desk all day and this thing pays for itself in a week. The LED strip lights are beautiful too — my room looks incredible.</p>
-      <div class="testi-author"><div class="testi-avatar">SA</div><div><div class="testi-name">Sofia Andrews</div><div class="testi-loc">Los Angeles, CA</div></div></div>
-    </div>
-    <div class="testi-card">
-      <div class="testi-q">"</div>
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">Bought the automatic pet feeder and my dog is obsessed. Sets meals automatically while I'm at work. The pet hair roller is also a must-have — removes everything instantly.</p>
-      <div class="testi-author"><div class="testi-avatar">RK</div><div><div class="testi-name">Ryan Kowalski</div><div class="testi-loc">Chicago, IL</div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- NEWSLETTER -->
-<section class="newsletter">
-  <span class="nl-tag">Stay in the Loop</span>
-  <h2 class="nl-h">Get Early Access & Exclusive Deals</h2>
-  <p class="nl-sub">Join 50,000+ Americans who get first access to new drops, flash sales, and member-only discounts.</p>
-  <div class="nl-form">
-    <input type="email" class="nl-input" placeholder="your@email.com"/>
-    <button class="nl-btn">Subscribe</button>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logo">LIVEASE<span>US</span></div>
-      <p class="footer-desc">America's most loved premium lifestyle store. Kitchen, home, tech, wellness & pet essentials — all in one place. Fast shipping, great prices.</p>
-      <div class="footer-socials">
-        <div class="social-ico">📘</div>
-        <div class="social-ico">📸</div>
-        <div class="social-ico">🎵</div>
-        <div class="social-ico">📌</div>
-      </div>
-    </div>
-    <div>
-      <div class="fc-title">Collections</div>
-      <ul class="fc-links">
-        <li><a href="#kitchen">🍳 Kitchen Essentials</a></li>
-        <li><a href="#home-org">🏠 Home Organization</a></li>
-        <li><a href="#smart-home">💡 Smart Home Finds</a></li>
-        <li><a href="#best-sellers">🔥 Best Sellers</a></li>
-        <li><a href="#pet">🐾 Pet Essentials</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="fc-title">Support</div>
-      <ul class="fc-links">
-        <li><a href="#">Track My Order</a></li>
-        <li><a href="#">Returns & Exchanges</a></li>
-        <li><a href="#">Shipping Info</a></li>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="fc-title">Company</div>
-      <ul class="fc-links">
-        <li><a href="#">About LiveaseUS</a></li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">Press</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2026 <span>LiveaseUS</span>. All rights reserved. Made with ♥ in America.</div>
-    <div class="pay-icons">💳 🏦 💰 🍎 📱</div>
-  </div>
-</footer>
-
-<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<a href="https://livease-admin.killfuzzyrat.workers.dev/admin" class="admin-float" target="_blank">⚙ Import Products</a>
-
-<!-- CART SIDEBAR -->
-<div class="cart-bg" id="cartBg" onclick="closeCart()"></div>
-<div class="cart-panel" id="cartPanel">
-  <div class="cart-head">
-    <div class="cart-title">Your Cart</div>
-    <button class="cart-close-btn" onclick="closeCart()">✕</button>
-  </div>
-  <div id="cartBody" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px">
-    <div class="cart-empty-icon">🛍️</div>
-    <div style="font-size:15px;color:var(--muted)">Your cart is empty</div>
-    <button class="btn-hero-primary" onclick="closeCart()" style="font-size:11px;padding:12px 24px;margin-top:8px">Start Shopping</button>
-  </div>
-</div>
-
-<script>
-// Marquee
-const items = ['Free US Shipping on $50+','Kitchen Essentials','Home Organization','Smart Home Finds','Best Sellers','Pet Essentials','30-Day Returns','Same-Day Dispatch','4.9★ Rated','50K+ Customers','Premium Quality','CJ Verified']
-const t = document.getElementById('mtrack')
-const full = [...items,...items].map(i=>`<div class="marquee-item">${i} <span class="marquee-dot">✦</span></div>`).join('')
-t.innerHTML = full + full
-
-// Cart
-let cart = []
-function openCart(){document.getElementById('cartBg').classList.add('on');document.getElementById('cartPanel').classList.add('on')}
-function closeCart(){document.getElementById('cartBg').classList.remove('on');document.getElementById('cartPanel').classList.remove('on')}
-
-function addToCart(name, price){
-  cart.push({name, price})
-  document.getElementById('cartCount').textContent = cart.length
-  const total = cart.reduce((a,b)=>a+b.price,0).toFixed(2)
-  document.getElementById('cartBody').innerHTML = `
-    <div style="padding:24px;width:100%;overflow-y:auto;flex:1">
-      <div style="font-family:'Playfair Display',serif;font-size:17px;color:var(--dark);margin-bottom:18px;font-weight:600">Items (${cart.length})</div>
-      ${cart.map(i=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--border)">
-        <div style="font-size:13px;color:var(--text);max-width:240px;line-height:1.4">${i.name}</div>
-        <div style="font-size:15px;font-weight:700;color:var(--gold-dark);flex-shrink:0;margin-left:12px">$${i.price.toFixed(2)}</div>
-      </div>`).join('')}
-      <div style="margin-top:20px;padding-top:16px;border-top:2px solid var(--border);display:flex;justify-content:space-between;font-size:18px;font-weight:700;color:var(--dark)">
-        <span>Total</span><span style="color:var(--gold-dark)">$${total}</span>
-      </div>
-      <button class="btn-hero-primary" style="width:100%;margin-top:18px;text-align:center;display:block">Checkout →</button>
-      <button class="btn-hero-outline" onclick="closeCart()" style="width:100%;margin-top:10px;text-align:center;display:block;font-size:11px;padding:12px">Continue Shopping</button>
-    </div>`
-  openCart()
-}
-
-// Category nav active on scroll
-function setActive(el){
-  document.querySelectorAll('.cat-pill').forEach(p=>p.classList.remove('active'))
-  el.classList.add('active')
-}
-
-const sections = ['kitchen','home-org','smart-home','best-sellers','pet']
-const pills = document.querySelectorAll('.cat-pill')
-window.addEventListener('scroll',()=>{
-  const offset = 160
-  document.getElementById('scrollTop').classList.toggle('on', window.scrollY > 500)
-  sections.forEach((id,i)=>{
-    const el = document.getElementById(id)
-    if(!el) return
-    const top = el.getBoundingClientRect().top
-    if(top <= offset && top > -el.offsetHeight + offset){
-      pills.forEach(p=>p.classList.remove('active'))
-      if(pills[i]) pills[i].classList.add('active')
-    }
-  })
-})
-
-// Hover effects on product cards
-document.querySelectorAll('.product-card').forEach(card=>{
-  card.addEventListener('mouseenter',function(){this.style.boxShadow='0 20px 50px rgba(0,0,0,.12)'})
-  card.addEventListener('mouseleave',function(){this.style.boxShadow=''})
-})
-</script>
+<button class="st" id="stt" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="/script.js"></script>
 </body>
 </html>
